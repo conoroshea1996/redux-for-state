@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 
 const initialState = {
-    count: 3
+    count: 0
 }
 
 const reducer = (state = initialState, action) => {
@@ -9,6 +9,8 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'INCERMENT':
             return Object.assign({}, state, { count: state.count + 1 });
+        case 'REDUCTION':
+            return Object.assign({}, state, { count: state.count - 1 });
         default:
             return state;
     }

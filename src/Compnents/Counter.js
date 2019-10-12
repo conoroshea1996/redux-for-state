@@ -8,7 +8,8 @@ function Counter(props) {
         <div >
             <h1>Counter</h1>
             <p>Count :{props.count}</p>
-            <button onClick={props.handleClick}>Add</button>
+            <button onClick={props.addOnClick}>Add</button>
+            <button onClick={props.subtractOnClick}>Minus</button>
         </div>
     );
 }
@@ -22,9 +23,14 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        handleClick: () => {
-            console.log('hi');
+        addOnClick: () => {
+            console.log('+1')
             const action = { type: 'INCERMENT' };
+            dispatch(action);
+        },
+        subtractOnClick: () => {
+            console.log('-1');
+            const action = { type: 'REDUCTION' };
             dispatch(action);
         }
     }
